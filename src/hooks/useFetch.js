@@ -10,12 +10,7 @@ export const useFetch = (url, options = {}, dependencies = []) => {
     setError(undefined);
     setValue(undefined);
 
-    const fetchOptions = {
-      headers: { "Content-Type": "application/json" },
-      ...options,
-    };
-
-    fetch(url, fetchOptions)
+    fetch(url, options)
       .then((res) => {
         if (res.ok) return res.json();
         return res.json().then((json) => Promise.reject(json));

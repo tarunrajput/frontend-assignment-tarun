@@ -12,7 +12,7 @@ import {
   KICKSTARTER_PROJECTS_API_URL,
   DEFAULT_TABLE_PAGE_SIZE,
   KICKSTARTER_PROJECTS_TABLE_COLS,
-} from "../../constants/api_constants";
+} from "../../constants/constants";
 
 import "./styles.css";
 
