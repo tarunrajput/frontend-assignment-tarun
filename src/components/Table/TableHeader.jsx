@@ -1,6 +1,6 @@
 
 const TableHeader = ({ children }) => {
-  return <thead role="rowgroup">{children}</thead>;
+  return <thead role="colgroup" scope="colgroup">{children}</thead>;
 };
 
 export default TableHeader;

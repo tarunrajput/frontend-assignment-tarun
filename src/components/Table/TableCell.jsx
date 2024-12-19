@@ -1,7 +1,7 @@
-const TableCell = ({ children, isHeader }) => {
+const TableCell = ({ children, isHeader, ...rest }) => {
   const Cell = isHeader ? "th" : "td";
   return (
-    <Cell>
+    <Cell role="cell" {...rest}>
       {children}
     </Cell>
   );

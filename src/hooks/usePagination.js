@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const usePagination = (initialData, pageSize, noOfShownPages = 4) => {
+export const usePagination = (initialData = [], pageSize, noOfShownPages = 4, dependencies = []) => {
   const [data, setData] = useState(initialData);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -40,7 +40,7 @@ export const usePagination = (initialData, pageSize, noOfShownPages = 4) => {
     setData(
       initialData.slice((currentPage - 1) * pageSize, currentPage * pageSize)
     );
-  }, [pageSize, currentPage]);
+  }, [pageSize, currentPage, ...dependencies]);
 
   const goToNextPage = () => {
     if (currentPage !== lastPageNumber) {
@@ -68,6 +68,8 @@ export const usePagination = (initialData, pageSize, noOfShownPages = 4) => {
       next: initialData.length === 0 ? null : goToNextPageNumber,
       previous: initialData.length === 0 ? null : goToPreviousPageNumber,
       last: lastPageNumber,
+      pageSize,
+      total: initialData.length,
     },
     action: {
       goToNextPage,

@@ -1,6 +1,6 @@
-const TableRow = ({ children }) => {
+const TableRow = ({ children, ...rest }) => {
   return (
-    <tr>
+    <tr role="row" {...rest}>
       {children}
     </tr>
   );
